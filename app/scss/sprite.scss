@@ -1,0 +1,268 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$briefcase-name: 'briefcase';
+$briefcase-x: 0px;
+$briefcase-y: 0px;
+$briefcase-offset-x: 0px;
+$briefcase-offset-y: 0px;
+$briefcase-width: 53px;
+$briefcase-height: 55px;
+$briefcase-total-width: 235px;
+$briefcase-total-height: 188px;
+$briefcase-image: 'sprite.png';
+$briefcase: (0px, 0px, 0px, 0px, 53px, 55px, 235px, 188px, 'sprite.png', 'briefcase', );
+$button-head-name: 'button_head';
+$button-head-x: 197px;
+$button-head-y: 82px;
+$button-head-offset-x: -197px;
+$button-head-offset-y: -82px;
+$button-head-width: 13px;
+$button-head-height: 25px;
+$button-head-total-width: 235px;
+$button-head-total-height: 188px;
+$button-head-image: 'sprite.png';
+$button-head: (197px, 82px, -197px, -82px, 13px, 25px, 235px, 188px, 'sprite.png', 'button_head', );
+$email-name: 'email';
+$email-x: 76px;
+$email-y: 110px;
+$email-offset-x: -76px;
+$email-offset-y: -110px;
+$email-width: 40px;
+$email-height: 38px;
+$email-total-width: 235px;
+$email-total-height: 188px;
+$email-image: 'sprite.png';
+$email: (76px, 110px, -76px, -110px, 40px, 38px, 235px, 188px, 'sprite.png', 'email', );
+$fb-name: 'fb';
+$fb-x: 159px;
+$fb-y: 40px;
+$fb-offset-x: -159px;
+$fb-offset-y: -40px;
+$fb-width: 38px;
+$fb-height: 40px;
+$fb-total-width: 235px;
+$fb-total-height: 188px;
+$fb-image: 'sprite.png';
+$fb: (159px, 40px, -159px, -40px, 38px, 40px, 235px, 188px, 'sprite.png', 'fb', );
+$fb-h-name: 'fb_h';
+$fb-h-x: 53px;
+$fb-h-y: 55px;
+$fb-h-offset-x: -53px;
+$fb-h-offset-y: -55px;
+$fb-h-width: 38px;
+$fb-h-height: 40px;
+$fb-h-total-width: 235px;
+$fb-h-total-height: 188px;
+$fb-h-image: 'sprite.png';
+$fb-h: (53px, 55px, -53px, -55px, 38px, 40px, 235px, 188px, 'sprite.png', 'fb_h', );
+$file-name: 'file';
+$file-x: 53px;
+$file-y: 0px;
+$file-offset-x: -53px;
+$file-offset-y: 0px;
+$file-width: 53px;
+$file-height: 55px;
+$file-total-width: 235px;
+$file-total-height: 188px;
+$file-image: 'sprite.png';
+$file: (53px, 0px, -53px, 0px, 53px, 55px, 235px, 188px, 'sprite.png', 'file', );
+$gh-name: 'gh';
+$gh-x: 0px;
+$gh-y: 110px;
+$gh-offset-x: 0px;
+$gh-offset-y: -110px;
+$gh-width: 38px;
+$gh-height: 40px;
+$gh-total-width: 235px;
+$gh-total-height: 188px;
+$gh-image: 'sprite.png';
+$gh: (0px, 110px, 0px, -110px, 38px, 40px, 235px, 188px, 'sprite.png', 'gh', );
+$gh-h-name: 'gh_h';
+$gh-h-x: 38px;
+$gh-h-y: 110px;
+$gh-h-offset-x: -38px;
+$gh-h-offset-y: -110px;
+$gh-h-width: 38px;
+$gh-h-height: 40px;
+$gh-h-total-width: 235px;
+$gh-h-total-height: 188px;
+$gh-h-image: 'sprite.png';
+$gh-h: (38px, 110px, -38px, -110px, 38px, 40px, 235px, 188px, 'sprite.png', 'gh_h', );
+$graduate-name: 'graduate';
+$graduate-x: 106px;
+$graduate-y: 0px;
+$graduate-offset-x: -106px;
+$graduate-offset-y: 0px;
+$graduate-width: 53px;
+$graduate-height: 55px;
+$graduate-total-width: 235px;
+$graduate-total-height: 188px;
+$graduate-image: 'sprite.png';
+$graduate: (106px, 0px, -106px, 0px, 53px, 55px, 235px, 188px, 'sprite.png', 'graduate', );
+$locked-name: 'locked';
+$locked-x: 197px;
+$locked-y: 61px;
+$locked-offset-x: -197px;
+$locked-offset-y: -61px;
+$locked-width: 18px;
+$locked-height: 21px;
+$locked-total-width: 235px;
+$locked-total-height: 188px;
+$locked-image: 'sprite.png';
+$locked: (197px, 61px, -197px, -61px, 18px, 21px, 235px, 188px, 'sprite.png', 'locked', );
+$school-name: 'school';
+$school-x: 0px;
+$school-y: 55px;
+$school-offset-x: 0px;
+$school-offset-y: -55px;
+$school-width: 53px;
+$school-height: 55px;
+$school-total-width: 235px;
+$school-total-height: 188px;
+$school-image: 'sprite.png';
+$school: (0px, 55px, 0px, -55px, 53px, 55px, 235px, 188px, 'sprite.png', 'school', );
+$skype-name: 'skype';
+$skype-x: 116px;
+$skype-y: 110px;
+$skype-offset-x: -116px;
+$skype-offset-y: -110px;
+$skype-width: 40px;
+$skype-height: 38px;
+$skype-total-width: 235px;
+$skype-total-height: 188px;
+$skype-image: 'sprite.png';
+$skype: (116px, 110px, -116px, -110px, 40px, 38px, 235px, 188px, 'sprite.png', 'skype', );
+$tel-name: 'tel';
+$tel-x: 0px;
+$tel-y: 150px;
+$tel-offset-x: 0px;
+$tel-offset-y: -150px;
+$tel-width: 40px;
+$tel-height: 38px;
+$tel-total-width: 235px;
+$tel-total-height: 188px;
+$tel-image: 'sprite.png';
+$tel: (0px, 150px, 0px, -150px, 40px, 38px, 235px, 188px, 'sprite.png', 'tel', );
+$tw-name: 'tw';
+$tw-x: 159px;
+$tw-y: 80px;
+$tw-offset-x: -159px;
+$tw-offset-y: -80px;
+$tw-width: 38px;
+$tw-height: 40px;
+$tw-total-width: 235px;
+$tw-total-height: 188px;
+$tw-image: 'sprite.png';
+$tw: (159px, 80px, -159px, -80px, 38px, 40px, 235px, 188px, 'sprite.png', 'tw', );
+$tw-h-name: 'tw_h';
+$tw-h-x: 197px;
+$tw-h-y: 0px;
+$tw-h-offset-x: -197px;
+$tw-h-offset-y: 0px;
+$tw-h-width: 38px;
+$tw-h-height: 40px;
+$tw-h-total-width: 235px;
+$tw-h-total-height: 188px;
+$tw-h-image: 'sprite.png';
+$tw-h: (197px, 0px, -197px, 0px, 38px, 40px, 235px, 188px, 'sprite.png', 'tw_h', );
+$unlocked-name: 'unlocked';
+$unlocked-x: 197px;
+$unlocked-y: 40px;
+$unlocked-offset-x: -197px;
+$unlocked-offset-y: -40px;
+$unlocked-width: 23px;
+$unlocked-height: 21px;
+$unlocked-total-width: 235px;
+$unlocked-total-height: 188px;
+$unlocked-image: 'sprite.png';
+$unlocked: (197px, 40px, -197px, -40px, 23px, 21px, 235px, 188px, 'sprite.png', 'unlocked', );
+$vk-name: 'vk';
+$vk-x: 159px;
+$vk-y: 0px;
+$vk-offset-x: -159px;
+$vk-offset-y: 0px;
+$vk-width: 38px;
+$vk-height: 40px;
+$vk-total-width: 235px;
+$vk-total-height: 188px;
+$vk-image: 'sprite.png';
+$vk: (159px, 0px, -159px, 0px, 38px, 40px, 235px, 188px, 'sprite.png', 'vk', );
+$vk-h-name: 'vk_h';
+$vk-h-x: 91px;
+$vk-h-y: 55px;
+$vk-h-offset-x: -91px;
+$vk-h-offset-y: -55px;
+$vk-h-width: 38px;
+$vk-h-height: 40px;
+$vk-h-total-width: 235px;
+$vk-h-total-height: 188px;
+$vk-h-image: 'sprite.png';
+$vk-h: (91px, 55px, -91px, -55px, 38px, 40px, 235px, 188px, 'sprite.png', 'vk_h', );
+$spritesheet-width: 235px;
+$spritesheet-height: 188px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($briefcase, $button-head, $email, $fb, $fb-h, $file, $gh, $gh-h, $graduate, $locked, $school, $skype, $tel, $tw, $tw-h, $unlocked, $vk, $vk-h, );
+$spritesheet: (235px, 188px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

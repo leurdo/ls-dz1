@@ -1,0 +1,26 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.10.1",
+    "gulp": "3.9.0",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "2.0.0",
+    "gulp-plumber": "1.0.1",
+    "gulp-sass": "2.1.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-watch": "4.3.5",
+    "gulp.spritesmith": "^6.0.1",
+    "jshint": "2.8.0",
+    "jshint-stylish": "2.1.0",
+    "main-bower-files": "2.11.1"
+  }
+}
