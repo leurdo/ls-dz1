@@ -298,10 +298,11 @@ header {
     border-bottom: 1px solid  #41ac91;
     border-top: 1px solid #66dbbe;
     background: linear-gradient(to top, #3eb799, #7ee8ce);
-        a {
-            color: $activetextcolor;
-            text-shadow: 0 1px rgba(255,255,255,.35);
-            }
+    color: $activetextcolor;
+    text-shadow: 0 1px rgba(255,255,255,.35);
+    padding: 13px 30px;
+    font-size: 20px;
+    font-family: 'open_sanssemibold';
 }
 
 .menu-item a {
@@ -544,6 +545,94 @@ header {
     }
 
 }
+
+// PORTFOLIO
+
+.works {
+    margin: 35px 0;
+
+    &-row {
+        margin-bottom: 35px;
+    }
+
+    &-item {
+        width: 168px;
+        float: left;
+        border-radius: 5px;
+        border: solid 1px #b6b6b6;
+        box-shadow: 0 2px 1px rgba(9,9,9,.07);
+        position: relative;
+        z-index: 0;
+        margin-left: 32px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &-img {
+            border-bottom: solid 1px #b6b6b6;
+            border-radius: 5px 5px 0 0;
+            display: block;
+            position: relative;
+            background: url(../images/pic.png) 0 0 repeat;
+
+            &:hover {
+                background: transparent;
+            }
+
+        
+            img {
+                width: 100%;
+                display: block;
+                position: relative;
+                border-radius: 5px 5px 0 0;
+                z-index: -1;
+            }
+        }
+
+        &-name {
+            background: #f2f2f2;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 14px;
+            font-family: 'open_sanssemibold';
+            display: block;
+        }
+
+        &-desc {
+            margin: 10px 0;
+            text-align: center;
+            font-family: 'open_sanslight';
+        }
+
+        &-add {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding-top: 90px;
+            font-family: 'open_sanssemibold';
+            text-shadow: 0 1px rgba(255,255,255,.75);
+            height: 137px;
+            background: url(../images/addwork.png) 0 0 repeat;
+
+            &:hover {
+                background: url(../images/polaroid.png) 0 0 repeat;
+            }
+        }
+    }
+
+    .add {
+        border: none;
+        text-align: center;
+        box-shadow: none;
+        position: relative;
+    }
+}
+
+
 
 // FOOTER
 
