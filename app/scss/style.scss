@@ -133,7 +133,7 @@ a {
     color: $maincol;
 }
 
-a:hover, a:focus, a:visited, input:focus {
+a:hover, a:focus, a:visited, input:focus, textarea:focus {
     outline: none;
     color: $maincol;
 }
@@ -303,6 +303,11 @@ header {
     padding: 13px 30px;
     font-size: 20px;
     font-family: 'open_sanssemibold';
+
+    &:last-child {
+        box-shadow: 0 2px 1px rgba(9,9,9,.07), inset 0 -2px 3px rgba(41,41,41,.05), inset 0 0 3px #f6f7f7;
+        border-bottom: solid 1px #c3c2c2;
+    }
 }
 
 .menu-item a {
@@ -615,24 +620,123 @@ header {
             padding-top: 90px;
             font-family: 'open_sanssemibold';
             text-shadow: 0 1px rgba(255,255,255,.75);
-            height: 137px;
-            background: url(../images/addwork.png) 0 0 repeat;
+            height: 132px;
 
             &:hover {
-                background: url(../images/polaroid.png) 0 0 repeat;
+                background: url(../images/polaroid_h.png) -2px -2px no-repeat;
+                box-shadow: none;
             }
+            
+        }
+
+        &-icon {
+            width: 53px;
+            height: 55px;
+            background: url(../images/polaroid.png) 0 0 no-repeat;
+            margin: 24px auto 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
         }
     }
 
     .add {
-        border: none;
+        width: 164px;
+        height: 132px;
+        background: #fbf9f9;
+        background: linear-gradient(to top, #edebea, #fbf9f9 94%, #fff);
+        box-shadow: 0 2px 1px rgba(9,9,9,.07), inset 0 -2px 3px rgba(41,41,41,.05), inset 0 0 3px #f6f7f7;
         text-align: center;
-        box-shadow: none;
-        position: relative;
     }
 }
 
+// CONTACTS FORM
 
+.form {
+    width: 400px;
+    margin: 35px auto;
+
+    &-half {
+        width: 190px;
+        float: left;
+
+
+        &-right {
+            float: right;
+        }
+    }
+
+
+
+    &-label {
+        font-family: 'open_sanssemibold';
+    }
+
+    &-input {
+        height: 41px;
+        width: 100%;
+        line-height: 41px;
+        border-radius: 2px/4px;
+        background: #fbfcfd;
+        box-shadow: 0 0 1px rgba(255,255,255,.15), 0 1px rgba(255,255,255,.35), inset 0 2px 2px rgba(114,112,112,.1);
+        border: solid 1px #d6d5d3;
+        background: linear-gradient(to top, rgba(233,231,231,.45), rgba(251,249,249,0));
+        font-family: 'open_sanslight';
+        font-size: 12px;
+        padding: 0 10px;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    &-txtar {
+        height: 180px;
+    }
+
+        &-submit {
+            display: block;
+            width: 121px;
+            height: 37px;
+            margin: 30px auto;
+            border-radius: 5px;
+            background: #80e8cb;
+            background: linear-gradient(to top, #43b796, #80e8cb);
+            border: solid 1px #c3c2c2;
+            box-shadow: 0 2px 1px rgba(9,9,9,.16), inset 0 1px rgba(255,255,255,.3);
+            color: #1e7465;
+            text-shadow: 0 1px rgba(255,255,255,.55);
+            font-family: 'open_sanssemibold';
+
+            &:hover {
+                box-shadow: inset 0 1px rgba(255,255,255,.3);
+                background: #5fdcbd;
+                background: linear-gradient(to top, #3aa087, #5fdcbd);
+            }
+        }
+
+        &-reset {
+            display: block;
+            width: 121px;
+            height: 37px;
+            margin: 30px auto;
+            border-radius: 5px;
+            background: #fbf9f9;
+            background: linear-gradient(to top, #e9e6e4, #fbf9f9 94%, #fff);
+            border: solid 1px #c3c2c2;
+            box-shadow: 0 2px 1px rgba(9,9,9,.07), inset 0 -2px 3px rgba(41,41,41,.05), inset 0 0 3px #f6f7f7;
+            color: #727070;
+            text-shadow: 0 1px rgba(255,255,255,.55);
+            font-family: 'open_sanssemibold';
+
+            &:hover {
+                box-shadow: inset 0 -2px 3px rgba(41,41,41,.05), inset 0 0 3px rgba(202,202,202,.61);
+                background: #e3e1e1;
+                background: linear-gradient(to top, #c2c0c0, #e3e1e1 86%, #e3e1e1 87%, #e8e7e7);
+            }
+        }
+
+
+    
+}
 
 // FOOTER
 

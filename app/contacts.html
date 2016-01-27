@@ -12,10 +12,12 @@
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="bower/normalize-css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="src/sprite.css">
     <script src="js/modernizr.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 
@@ -49,8 +51,8 @@
                 <nav class="menu"> <!-- LEFT MENU -->
                     <ul>
                         <li class="menu-item"><a href="index.html">Обо мне</a></li>
-                        <li class="menu-item active">Мои работы</li>
-                        <li class="menu-item"><a href="contacts.html">Обратная связь</a></li>
+                        <li class="menu-item"><a href="portfolio.html">Мои работы</a></li>
+                        <li class="menu-item active">Обратная связь</li>
                     </ul>
                 </nav>
 
@@ -68,54 +70,33 @@
             <section class="page-content"> <!-- PAGE CONTENT -->
 
                 <article class="infoblock"> 
-                    <h2 class="head">Мои работы</h2>
+                    <h2 class="head">У вас интересный проект? Напишите мне</h2>
                     
-                        <div class="infoblock-inner works">
-                            <div class="works-row clearfix">
-                                <div class="works-item">
-                                        <a class="works-item-img" href="#">
-                                            <img src="http://lorempixel.com/165/120/cats/1" alt="">
-                                        </a>
-                                        <a href="#" class="works-item-name">котики1.рф</a>
-                                        <p class="works-item-desc">Корпоративный и в то же время продающий сайт с котиками.</p>
+                        <div class="infoblock-inner">
+                            <form method="post" action="#" class="form clearfix">
+                                <div class="form-half">
+                                    <p class="form-label"><label for="name">Имя</label></p>
+                                    <input class="form-input" type="text" placeholder="Как к Вам обращаться" name="name">
                                 </div>
-                                <div class="works-item">
-                                        <a class="works-item-img" href="#">
-                                            <img src="http://lorempixel.com/165/120/cats/2" alt="">
-                                        </a>
-                                        <a href="#" class="works-item-name">котики2.рф</a>
-                                        <p class="works-item-desc">Продающая страница для компании "котики"</p>
+
+                                <div class="form-half form-half-right">
+                                    <p class="form-label"><label for="email">Email</label></p>
+                                    <input class="form-input form-right" type="text" name="email" placeholder="Куда мне писать">
                                 </div>
-                                <div class="works-item">
-                                        <a class="works-item-img" href="#">
-                                            <img src="http://lorempixel.com/165/120/cats/3" alt="">
-                                        </a>
-                                        <a href="#" class="works-item-name">котики3.рф</a>
-                                        <p class="works-item-desc">Корпоративный, продающий и в то же время декоративный сайт о котиках.</p>
+
+                                <p class="form-label"><label for="message">Сообщение</label></p>
+                                <textarea class="form-input form-txtar" placeholder="Кратко в чем суть" name="message"></textarea>
+
+                                <div class="g-recaptcha" data-sitekey="6Lf9ihYTAAAAALNJZY6Fn0vFhmZxgdUFS_Y_jQDl"></div>
+
+                                <div class="form-half">
+                                    <input class="form-submit" type="submit" value="Отправить">
                                 </div>
-                            </div> <!-- /.works-row  -->  
-                            <div class="works-row clearfix">
-                                <div class="works-item">
-                                        <a class="works-item-img" href="#">
-                                            <img src="http://lorempixel.com/165/120/cats/4" alt="">
-                                        </a>
-                                        <a href="#" class="works-item-name">котики4.рф</a>
-                                        <p class="works-item-desc">Приятный во всех отношениях кошачий сайт.</p>
+                                <div class="form-half form-half-right form-buttons">
+                                    <input class="form-reset" type="reset" value="Очистить">
                                 </div>
-                                <div class="works-item">
-                                        <a class="works-item-img" href="#">
-                                            <img src="http://lorempixel.com/165/120/cats/5" alt="">
-                                        </a>
-                                        <a href="#" class="works-item-name">котики5.рф</a>
-                                        <p class="works-item-desc">Еще одн продающая страница для компании "котики"</p>
-                                </div>
-                                <div class="works-item add">
-                                        <i class="works-item-icon"></i>
-                                        <a class="works-item-add" href="#">Добавить проект</a>
-                                        
-                                </div>
-                            </div> <!-- /.works-row  -->  
-                        </div>
+                            </form>
+                        </div> <!-- /.infoblock-inner  -->  
                     
                 </article>
                  
@@ -134,6 +115,6 @@
         </footer>
      
      <script src="bower/jquery/jquery.js"></script>
-
+     <script src="js/placeholder.js"></script>
     </body>
     </html>
