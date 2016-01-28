@@ -23,10 +23,11 @@ gulp.task('sass', function() {
     return gulp.src("app/scss/*.scss")
         .pipe(sass())
         .pipe(sourcemaps.init())
+        
         .pipe(autoprefixer({
             browsers: ['last 10 versions', 'IE 8']
         }))
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write())
         .pipe(plumber())
         .pipe(gulp.dest("app/css"))
         .pipe(browserSync.stream());
