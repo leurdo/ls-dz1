@@ -145,6 +145,7 @@
         $('#project-file').fileupload({
             url: 'controller.php',
             dataType: 'json',
+            
             done: function (e, data) {
                 console.log('файл загружен');
                 console.log(data);
