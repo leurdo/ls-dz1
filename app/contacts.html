@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="bower/normalize-css/normalize.css">
+    <link rel="stylesheet" href="css/jquery.qtip.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="src/sprite.css">
     <script src="js/modernizr.js"></script>
@@ -59,9 +60,9 @@
                 <div class="contacts">
                     <div class="contacts-head">Контакты</div>
                     <ul>
-                        <li class="contacts-item"><i class="icon icon-email"></i><a href="mailto:katya.leurdo@gmail.com">katya.leurdo@gmail.com</a></li>
-                        <li class="contacts-item phone"><i class="icon icon-tel"></i>+7(111)111-11-11</li>
-                        <li class="contacts-item skype"><i class="icon icon-skype"></i>katya.leurdo</li>
+                        <li class="contacts-item"><i class="icon icon-email"></i><a class="email" href="mailto:katya.leurdo@gmail.com">katya.leurdo@gmail.com</a></li>
+                        <li class="contacts-item phone"><i class="icon icon-tel"></i><a href="+7(111)111-11-11">+7(111)111-11-11</a></li>
+                        <li class="contacts-item skype"><i class="icon icon-skype"></i><a href="skype:katya.leurdo?add">katya.leurdo</a></li>
                     </ul>
                 </div>
 
@@ -73,19 +74,24 @@
                     <h1 class="head">У вас интересный проект? Напишите мне</h1>
                     
                         <div class="infoblock-inner">
-                            <form method="post" action="#" class="form clearfix">
+                            <form method="post" action="#" class="contact-form clearfix">
+                                <div class="mes mes-success">
+                                    <strong>Ура!</strong> Сообщение успешно отправлено!
+                                </div>
+                                <div class="mes mes-error">
+                                </div>
                                 <div class="form-half">
                                     <p class="form-label"><label for="name">Имя</label></p>
-                                    <input class="form-input" type="text" placeholder="Как к Вам обращаться" id="name" name="name">
+                                    <input data-tooltip="введите имя" data-position="left" class="form-input required" type="text" placeholder="Как к Вам обращаться" id="name" name="name">
                                 </div>
 
                                 <div class="form-half form-half-right">
                                     <p class="form-label"><label for="email">Email</label></p>
-                                    <input class="form-input form-right" type="text" id="email" name="email" placeholder="Куда мне писать">
+                                    <input class="form-input required form-right" type="text" id="email" name="email" data-position="right" data-tooltip="введите email" placeholder="Куда мне писать">
                                 </div>
 
                                 <p class="form-label"><label for="message">Сообщение</label></p>
-                                <textarea class="form-input form-txtar" id="message" placeholder="Кратко в чем суть" name="message"></textarea>
+                                <textarea data-tooltip="ваш вопрос" data-position="left" class="form-input required form-txtar" id="message" placeholder="Кратко в чем суть" name="message"></textarea>
 
                                 <div class="g-recaptcha" data-sitekey="6Lf9ihYTAAAAALNJZY6Fn0vFhmZxgdUFS_Y_jQDl"></div>
 
@@ -108,13 +114,43 @@
         <footer class="footer clearfix">
             <div class="footer-inner container">
                 <div class="footer-login">
-                    <a href="#"><i class="icon icon-locked"></i>ВХОД</a>
+                    <a href="#" data-popup-open="popup-login"><i class="icon icon-locked"></i>ВХОД</a>
                 </div>
                 <p class="footer-inner-p">&copy;2016. Это мой сайт, пожалуйста, не копируйте и не воруйте его!</p>
             </div>
         </footer>
-     
+
+    <!-- Login popup -->
+    <div class="popup" id="popup-login" data-popup="popup-login">
+         <div class="login-popup">
+            <div class="login-inner">
+                <h3 class="project-header">Авторизуйтесь</h3>
+
+                <form method="post" action="#" class="login-form clearfix">
+
+                    <div class="login-wrapper">
+                        <i class="icon icon-email_l"></i>
+                        <input data-tooltip="введите email" data-position="right" class="form-input required login-email" type="text" placeholder="Введите Email" id="login-email" name="login-email">
+                    </div>
+
+                    <div class="login-wrapper">
+                        <i class="icon icon-key"></i>
+                        <input data-tooltip="введите пароль" data-position="right" class="form-input required project-password" type="text" placeholder="Введите пароль" id="project-password" name="project-password">
+                    </div>
+                    
+                    <input type="checkbox" id="remember" name="remember">
+                    <label class="login-label" for="remember">Запомнить меня</label>
+                    
+                    <button class="form-submit" type="submit">Отправить</button>
+                </form>
+
+                <a class="popup-close" data-popup-close="popup-login" href="#"></a>
+            </div>
+         </div>
+     </div>
      <script src="bower/jquery/jquery.js"></script>
      <script src="js/placeholder.js"></script>
+     <script src="js/jquery.qtip.min.js"></script>
+     <script src="js/main.js"></script>
     </body>
     </html>

@@ -58,9 +58,9 @@
                 <div class="contacts">
                     <div class="contacts-head">Контакты</div>
                     <ul>
-                        <li class="contacts-item"><i class="icon icon-email"></i><a class="email" href="mailto:katya.leurdo@gmail.com">katya.leurdo@gmail.com</a></li>
-                        <li class="contacts-item phone"><i class="icon icon-tel"></i><a href="+7(111)111-11-11">+7(111)111-11-11</a></li>
-                        <li class="contacts-item skype"><i class="icon icon-skype"></i><a href="skype:katya.leurdo?add">katya.leurdo</a></li>
+                        <li class="contacts-item"><i class="icon icon-email"></i><a href="mailto:katya.leurdo@gmail.com">katya.leurdo@gmail.com</a></li>
+                        <li class="contacts-item phone"><i class="icon icon-tel"></i>+7(111)111-11-11</li>
+                        <li class="contacts-item skype"><i class="icon icon-skype"></i>katya.leurdo</li>
                     </ul>
                 </div>
 
@@ -149,49 +149,41 @@
                 <p class="footer-inner-p">&copy;2016. Это мой сайт, пожалуйста, не копируйте и не воруйте его!</p>
             </div>
         </footer>
-
-    <!-- Add project popup -->
      <div class="popup" id="popup-project" data-popup="popup-project">
          <div class="project-popup">
             <div class="project-inner">
                 <h3 class="project-header">Добавление проекта</h3>
 
-                <form enctype="multipart/form-data" method="post" action="#" class="project-form clearfix">
-                    <div class="mes mes-success">
-                        <strong>Ура!</strong> Проект успешно добавлен!
-                    </div>
-                    <div class="mes mes-error">
-                    </div>
+                <form method="post" action="#" class="project-form clearfix">
+                    
                     <p class="form-label"><label for="project-name">Название проекта</label></p>
-                    <input data-tooltip="введите название" data-position="left" class="form-input required" type="text" placeholder="Введите название" id="project-name" name="project-name">
+                    <input data-tooltip="введите название" class="form-input" type="text" placeholder="Введите название" id="project-name" name="project-name">
                
                     <div class="project-upload clearfix">
                             <p class="form-label">Картинка проекта</p>
                             <label for="project-file" class="form-input project-upload-input">
                                 <span class="project-upload-field">Загрузите изображение</span>
                                 <span class="project-upload-button"></span>
-                                <input class="required" data-tooltip="изображение" data-position="left" type="file" name="file" id="project-file"/>
+                                <input data-tooltip="изображение" type="file" name="file" id="project-file"/>
                             </label>
                     </div>
 
                     <p class="form-label"><label for="project-url">URL проекта</label></p>
-                    <input data-tooltip="ссылка на проект" data-position="left" class="form-input required" type="text" placeholder="Добавьте ссылку" id="project-url" name="project-url">
+                    <input data-tooltip="ссылка на проект" class="form-input" type="text" placeholder="Добавьте ссылку" id="project-url" name="project-url">
 
                     <p class="form-label"><label for="project-description">Сообщение</label></p>
-                    <textarea data-tooltip="описание проекта" data-position="left" class="form-input required form-txtar" id="project-description" placeholder="Пара слов о вашем проекте" name="project-description"></textarea>
+                    <textarea data-tooltip="описание проекта" class="form-input form-txtar" id="project-description" placeholder="Пара слов о вашем проекте" name="project-description"></textarea>
 
                     <button class="form-submit" type="submit">Отправить</button>
-
+        
                 </form>
 
                 <a class="popup-close" data-popup-close="popup-project" href="#"></a>
             </div>
          </div>
      </div>
+
      <script src="bower/jquery/jquery.js"></script>
-     <script src="bower/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-     <script src="bower/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-     <script src="bower/blueimp-file-upload/js/jquery.fileupload.js"></script>
      <script src="js/placeholder.js"></script>
      <script src="js/jquery.qtip.min.js"></script>
      <script src="js/main.js"></script>

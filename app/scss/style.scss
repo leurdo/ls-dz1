@@ -66,7 +66,7 @@ a {
     color: $maincol;
 }
 
-a:hover, a:focus, a:visited, input:focus, textarea:focus {
+a:hover, a:focus, a:visited, input:focus, textarea:focus, button:focus {
     outline: none;
 }
 
@@ -119,6 +119,31 @@ footer, .page-wrap:after {
 
 * {
     box-sizing: border-box;
+}
+
+.lastchild input[type="checkbox"] {
+    display: none;
+}
+
+.lastchild input[type="checkbox"] + label {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.lastchild input[type="checkbox"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    margin: 0 5px 0 0;
+    background-image: url(../images/sprite1.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    vertical-align: text-bottom;
+}
+
+.lastchild input[type="checkbox"]:checked + label:before {
+    background-position: -21px 0px;
 }
 
 ul {
@@ -608,10 +633,12 @@ header {
 
 // CONTACTS FORM
 
-.form {
+.contact-form {
     width: 400px;
     margin: 35px auto;
+}
 
+.form {
     &-half {
         width: 190px;
         float: left;
@@ -690,8 +717,6 @@ header {
             }
         }
 
-
-    
 }
 
 // FOOTER
@@ -727,4 +752,173 @@ header {
             font-size: 12px;
         }
     }
+}
+
+//POPUP ADD PROJECT
+
+.popup {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background: url(../images/pic.png) 0 0 repeat;
+    display: none;
+}
+
+.project {
+    &-popup {
+        max-width:365px;
+        width:95%;
+        
+        position:absolute;
+        top:50px;
+        left:0;
+        right:0;
+        margin: 0 auto;
+        box-shadow: 0 11px 27px rgba(159,159,159,.75), inset 0 6px 6px #fff;
+        border: solid 1px #c3c2c2;
+        border-radius: 4px/7px;
+        background:#fff;
+    }
+
+    &-inner {
+        padding:30px 20px 0 20px;
+        position: relative;
+    }
+
+    &-header {
+        position: absolute;
+        top: -40px;
+        left: 20px;
+        color: #fff;
+        font-size: 12px;
+        font-family: 'open_sanslight';
+    }
+
+    &-upload {
+        
+        input[type=file] {
+            position: absolute;
+            left:0;
+            z-index: -1;
+        }
+
+        &-button {
+            width: 20%;
+            height: 39px;
+            float: left;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-left: solid 1px #c3c2c2;
+            background: url(../images/download.png) center center no-repeat;
+            background: url(../images/download.png) center center no-repeat, linear-gradient(to top, #e9e6e5, #fbf9f9 94%, #fff);
+        }
+
+        &-input {
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            float: left;
+            color: #a9a9a9;
+        }
+    }
+
+}
+
+//POPUP LOGIN
+
+.login {
+    &-popup {
+        max-width:330px;
+        width:95%;
+        position:absolute;
+        top:25%;
+        left:0;
+        right:0;
+        margin: 0 auto;
+        box-shadow: 0 11px 27px rgba(159,159,159,.75), inset 0 6px 6px #fff;
+        border: solid 1px #c3c2c2;
+        border-radius: 4px/7px;
+        background:#f6f5f5;
+    }
+
+    &-inner {
+        padding:35px 35px 0 35px;
+        position: relative;
+
+        & .form-input {
+            padding-left: 70px;
+
+            
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+
+        &:before {
+                content: "";
+                background-image: url(../images/sprite1.png);
+                background-position: 0px -21px;
+                background-repeat: no-repeat;
+                width: 11px;
+                height: 40px;
+                position: absolute;
+                left: 45px;
+                top: 0;
+            }
+
+        & .icon {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+    }
+
+}
+
+.popup-close {
+    background: url(../images/x.png) center center no-repeat;
+    position: absolute;
+    top:10px;
+    right:10px;
+    width: 14px;
+    height: 14px;
+}
+
+.not_ok {
+    border: 1px solid #d77b5b;
+}
+
+.mes {
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    margin-bottom: 10px;
+    position: relative;
+
+    &:before {
+        content:"x";
+        position: absolute;
+        top: 0;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    &-success {
+        border: 1px solid #49bb7b;
+        background: #bce1cb;
+        color: #49bb7b;
+    }
+
+    &-error {
+        border: 1px solid #cb6945;
+        background: #e9c8bc;
+        color: #cb6945;
+    }
+
 }

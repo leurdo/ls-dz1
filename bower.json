@@ -17,14 +17,12 @@
   ],
   "dependencies": {
     "jquery": "#1.8",
-    "normalize-css": "normalize.css#~3.0.3"
+    "normalize-css": "normalize.css#~3.0.3",
+    "blueimp-file-upload": "~9.11.2"
   },
   "preen": {
     "app/bower/jquery": [
       "dist/*.js"
     ]
-  },
-  "devDependencies": {
-    "html5shiv": "~3.7.3"
   }
 }

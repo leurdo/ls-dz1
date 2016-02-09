@@ -11,11 +11,12 @@ var concat = require('gulp-concat');
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-        server: "./app"
+        proxy: "dz1.loc"
     });
 
     gulp.watch("app/scss/*.scss", ['sass']);
     gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch("app/js/*.js").on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
@@ -35,9 +36,9 @@ gulp.task('sass', function() {
 
 gulp.task('sprite', function () {
   var spriteData = gulp.src('app/images/sprite/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.css',
-    imgPath: '../images/sprite.png'
+    imgName: 'sprite1.png',
+    cssName: 'sprite1.css',
+    imgPath: '../images/sprite1.png'
     
   }));
   spriteData.img.pipe(gulp.dest('app/images/')); // путь, куда сохраняем картинку
