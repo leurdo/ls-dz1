@@ -1,25 +1,25 @@
-/*
-** File input decoration and form validation
-*/
+/**
+ * Forms processing
+ */
 
 (function() {
-    var validation;
+
+ var filesList = [];
   
   publicMethod();
   init();
   attachEvents();
     
   function init() {
-        $(function() {
-            console.log('погнали');
-        })
+     filesList = _initFileUpload();
   };
   
   function attachEvents() {
 
-    /* Loads input[file] text to fake field */
-    $('#project-file').change( _LoadText );
+    // Loads input[file] text to fake field 
+    $('#project-file').change( _loadText );
 
+    // Inits form processing on submit
     $('form').on('submit', function (e) {
         e.preventDefault();
         _processForm(this);
@@ -27,61 +27,77 @@
     
     };
 
+    // Hides success and error messages
     $('.mes').on('click', function () {
         $(this).fadeOut(350);
     });
 
-    function _LoadText () {
+    function _initFileUpload () {
+
+        $('#project-file').fileupload({
+            autoUpload: false,
+            url: 'controller.php',
+            dataType: 'json',
+            sequentialUploads: true,
+            replaceFileInput: false,
+            maxNumberOfFiles: 1
+        })
+        .bind('fileuploadadd', function (e, data) {
+            filesList = data.files;
+            return filesList;
+        });
+
+    };
+
+    function _loadText () {
      
-        var str = $(this).val();
+        var fileName = $(this).val(),
+            namePos,
+            fileNameCut;
 
-        if (str.lastIndexOf('\\')) {
-            var i = str.lastIndexOf('\\')+1;
-        }
-
-        else {
-        var i = str.lastIndexOf('/')+1;
+        if (fileName.lastIndexOf('\\')) {
+            namePos = fileName.lastIndexOf('\\')+1;
+        } else {
+            namePos = fileName.lastIndexOf('/')+1;
         }  
 
-        var filename = str.slice(i);
+        fileNameCut = fileName.slice(namePos);
 
-        var e = $(this).siblings('.project-upload-field');
-
-        e.html(filename);
+        $(this).siblings('.project-upload-field').html(fileNameCut);
     };
  
     function _processForm (form) {
         
-        var inputs_group = $(form).find('.required');
+        var inputsGroup = $(form).find('.required');
 
-        inputs_group.each(function() {
+        inputsGroup.each(function() {
 
-            if ( $(this).val().length == 0 ) {
+            if ( $(this).val() === '' ) {
 
                 var 
-                    this_el = $(this),
-                    at_pos = $(this).attr('data-position'),
-                    my_pos = 'right';
+                    thisElement = $(this),
+                    atPos = $(this).attr('data-position'),
+                    myPos = 'right';
                     
 
-                if (at_pos == 'right') {
-                    my_pos = 'left';
+                if (atPos == 'right') {
+                    myPos = 'left';
                 }
 
-                this_el.addClass('not_ok');
-                this_el.parent('.project-upload-input').addClass('not_ok');
+                thisElement.addClass('not-ok');
+                thisElement.parent('.project-upload-input').addClass('not-ok');
 
-                /* Calling qTip2 */
-                this_el.qtip({ 
+                // Calling qTip2 
+                thisElement.qtip({ 
                     content: {
                         attr: 'data-tooltip' 
                     },
                     style: {
-                        classes: 'qtip-red qtip-shadow qtip-rounded qtip-mine'
+                        classes: 'qtip-red qtip-shadow qtip-rounded'
                     },
                     position: {
-                        my: my_pos +' center',  // Position my...
-                        at: at_pos +' center' // at the ...
+                        my: myPos +' center',  // Position my...
+                        at: atPos +' center' // at the ...
                     },
                     show: {
                         ready: true,
@@ -92,8 +108,8 @@
                     },
                     events: {
                         hide: function() {
-                            this_el.removeClass('not_ok');
-                            this_el.parent('.project-upload-input').removeClass('not_ok');
+                            thisElement.removeClass('not-ok');
+                            thisElement.parent('.project-upload-input').removeClass('not-ok');
                         }
                     }
                 })
@@ -102,9 +118,14 @@
 
         });
 
-        if ( (!inputs_group.hasClass('not_ok')) && _validateRecaptcha(form) ) {
+        if ( (!inputsGroup.hasClass('not-ok')) && _validateRecaptcha(form) ) {
             console.log('Форма прошла валидацию');
-            _ajaxForm(form);
+            
+            if ($(form).find('#project-file').length) {
+                _fileuploadForm(form);
+            } else {
+                _ajaxForm(form);
+            }
         }
     };
 
@@ -117,7 +138,7 @@
             }
 
             if (!recaptcha) {
-                /*Show tooltip*/
+                //Show tooltip
                 $('.g-recaptcha iframe').qtip ({
                     content: 'Поставьте галку',
                     position: {
@@ -138,37 +159,39 @@
             return recaptcha;
     };
 
+    function _fileuploadForm (form) {
+
+        $('#project-file').fileupload('send', {files: filesList})
+            .success(function (result, textStatus, jqXHR) {
+                console.log('success');
+                _ajaxForm (form);
+            })
+            .error(function (jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+                $('.mes-error').text(errorThrown);
+                $('.mes-error').fadeIn(350);
+            });
+            
+
+    };
+
     function _ajaxForm (form) {
 
         var data = $(form).serialize();
-
-        $('#project-file').fileupload({
-            url: 'controller.php',
-            dataType: 'json',
-            
-            done: function (e, data) {
-                console.log('файл загружен');
-                console.log(data);
-            }
-        });
 
         $.ajax({
              url: 'controller.php', // куда идет запрос
              type: 'post', // тип запроса
              dataType: 'json',
-             data: data
+             data: data   
         })
-            .fail(function() {
+            .fail(function(ans) {
                 $('.mes-error').text('На сервере произошла ошибка');
                 $('.mes-error').fadeIn(350);
             })
-            .done(function(ans) {
-                if (ans.status == 'OK') {
-                    $('.mes-success').fadeIn(350);
-                } else {
-                    $('.mes-error').text(ans.text);
-                    $('.mes-error').fadeIn(350);
-                }
+            .success(function(ans) {
+                $('.mes-success').fadeIn(350);
+                console.log(ans.files);
 
                 $(form).find('input, textarea').on('focus', function () {
                     $(form).find('.mes').fadeOut(350);
@@ -178,7 +201,7 @@
 
             });
 
-        };
+    };
 
     function _clearForm(form) {
 
@@ -191,17 +214,14 @@
 
     };
   
-  function publicMethod() {
-    validation = {
-
-    };
-  }
+  function publicMethod() {};
   
-  return window.moduleName = validation;
 })();
 
 
-/*popup management*/
+/**
+ * Popup management
+ */
 
 (function() {
     var popup;
@@ -210,42 +230,36 @@
   init();
   attachEvents();
     
-  function init() {
-        /* just code */
-  };
+  function init() {};
   
   function attachEvents() {
-    $('[data-popup-open]').on('click', pOpen);
-    $('.popup').on('mouseup', pClose);
+    $('[data-popup-open]').on('click', onOpen);
+    $('.popup').on('mouseup', onClose);
   };
 
-  function pOpen (e) {
+  function onOpen (e) {
     e.preventDefault();
 
-    var targeted_popup_class = jQuery(this).attr('data-popup-open');
+    var targeted_popup_class = $(this).attr('data-popup-open');
     $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
   };
 
-  function pClose (e) {
+  function onClose (e) {
     e.preventDefault();
-    e.stopPropagation();
 
-    if ($(e.target).attr('class')=='popup' || $(e.target).attr('class')=='popup-close') {
+    var $target = $(e.target);
+
+    if ($target.attr('class')=='popup' || $target.attr('class')=='popup-close') {
         $('.popup').fadeOut(350);
         $('.qtip').hide();
-        $('.form-input').removeClass('not_ok');
+        $('.form-input').removeClass('not-ok');
         $('.mes-error').text('');
         $('.mes').hide();
         }
   };
   
-  function publicMethod() {
-    popup = {
-        
-    };
-  }
+  function publicMethod() {};
   
-  return window.moduleName = popup;
 })();
 
 

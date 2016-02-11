@@ -1,10 +1,11 @@
 <?php 
+error_reporting(E_ALL | E_STRICT);
+require('UploadHandler.php');
+$upload_handler = new UploadHandler();
 
-$data = array();
-$data['status'] = 'OK';
+$json = array();
+echo json_encode($json);
 
-header('Content-Type: application/json');
-echo json_encode($data);
-exit;
 
- ?>
+exit();
+
