@@ -170,7 +170,7 @@
                             <label for="project-file" class="form-input project-upload-input">
                                 <span class="project-upload-field">Загрузите изображение</span>
                                 <span class="project-upload-button"></span>
-                                <input class="required" data-tooltip="изображение" data-position="left" type="file" name="file" id="project-file"/>
+                                <input class="required" data-tooltip="изображение" data-position="left" type="file" name="files[]" id="project-file"/>
                             </label>
                     </div>
 
@@ -179,6 +179,8 @@
 
                     <p class="form-label"><label for="project-description">Сообщение</label></p>
                     <textarea data-tooltip="описание проекта" data-position="left" class="form-input required form-txtar" id="project-description" placeholder="Пара слов о вашем проекте" name="project-description"></textarea>
+                    
+                    <input type="hidden" name="project-file-name" id="project-file-name">
 
                     <button class="form-submit" type="submit">Отправить</button>
 

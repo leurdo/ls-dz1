@@ -24,7 +24,6 @@
         e.preventDefault();
         _processForm(this);
         });
-    
     };
 
     // Hides success and error messages
@@ -32,20 +31,56 @@
         $(this).fadeOut(350);
     });
 
+    function $showTooltip (object, content, atPos) {
+
+        var myPos = 'right';
+
+        if (atPos == 'right') {
+            myPos = 'left';
+            }
+
+        object.qtip ({
+                    content: content,
+                    position: {
+                        my: myPos +' center',  // Position my...
+                        at: atPos +' center' // at the ...
+                    },
+                    style: {
+                        classes: 'qtip-red qtip-shadow qtip-rounded qtip-mine'
+                    },
+                    show: {
+                        ready: true,
+                        event: false
+                    },
+                    hide: {
+                        event: 'focus'
+                    },
+                })
+    }
+
     function _initFileUpload () {
 
         $('#project-file').fileupload({
-            autoUpload: false,
-            url: 'controller.php',
+            url: 'UploadHandler.php',
             dataType: 'json',
-            sequentialUploads: true,
             replaceFileInput: false,
-            maxNumberOfFiles: 1
+            maxNumberOfFiles: 1,
+            add: function(e, data) {
+                if (!~data.files[0].type.indexOf('image')) {
+                    $showTooltip($(this), 'Файл не картинка', 'left');
+                } else 
+                if (data.files[0].size > 5000000) {
+                    $showTooltip($(this), 'Файл слишком большой', 'left');
+                } else {
+                    data.submit();
+                }
+            },
+            done: function (e, data) {
+                    var fileName = data.files[0].name;
+                    $('#project-file-name').val(fileName);
+                  }
         })
-        .bind('fileuploadadd', function (e, data) {
-            filesList = data.files;
-            return filesList;
-        });
+        
 
     };
 
@@ -120,12 +155,7 @@
 
         if ( (!inputsGroup.hasClass('not-ok')) && _validateRecaptcha(form) ) {
             console.log('Форма прошла валидацию');
-            
-            if ($(form).find('#project-file').length) {
-                _fileuploadForm(form);
-            } else {
-                _ajaxForm(form);
-            }
+            _ajaxForm(form);
         }
     };
 
@@ -159,26 +189,12 @@
             return recaptcha;
     };
 
-    function _fileuploadForm (form) {
-
-        $('#project-file').fileupload('send', {files: filesList})
-            .success(function (result, textStatus, jqXHR) {
-                console.log('success');
-                _ajaxForm (form);
-            })
-            .error(function (jqXHR, textStatus, errorThrown) {
-                console.log(errorThrown);
-                $('.mes-error').text(errorThrown);
-                $('.mes-error').fadeIn(350);
-            });
-            
-
-    };
+    
 
     function _ajaxForm (form) {
 
-        var data = $(form).serialize();
-
+        var data = $(form).serializeArray();
+    
         $.ajax({
              url: 'controller.php', // куда идет запрос
              type: 'post', // тип запроса
@@ -191,7 +207,7 @@
             })
             .success(function(ans) {
                 $('.mes-success').fadeIn(350);
-                console.log(ans.files);
+                console.log(ans.object);
 
                 $(form).find('input, textarea').on('focus', function () {
                     $(form).find('.mes').fadeOut(350);
